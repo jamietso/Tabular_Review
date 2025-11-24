@@ -16,6 +16,10 @@ An AI-powered document review workspace that transforms unstructured legal contr
 - **Spreadsheet Interface**: A high-density, Excel-like grid for managing bulk document reviews.
 - **Integrated Chat Analyst**: Ask questions across your entire dataset (e.g., "Which contract has the most favorable MFN clause?").
 
+## 🎬 Demo
+
+https://github.com/user-attachments/assets/b63026d8-3df6-48a8-bb4b-eb8f24d3a1ca
+
 ## 🛠 Tech Stack
 
 - **Frontend**: React 19, TypeScript, Tailwind CSS

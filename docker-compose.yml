@@ -1,0 +1,40 @@
+# Docker Compose automatically loads .env file in the same directory
+# Edit .env file to configure environment variables
+
+services:
+  # Backend service for document processing
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: tabular-review-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=${PYTHONUNBUFFERED}
+      - VITE_API_URL=${VITE_API_URL}
+    networks:
+      - tabular-review-network
+
+  # Frontend service for React application
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: tabular-review-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=${VITE_API_URL}
+      - VITE_GEMINI_API_KEY=${VITE_GEMINI_API_KEY}
+      - NODE_ENV=${NODE_ENV}
+    networks:
+      - tabular-review-network
+
+networks:
+  tabular-review-network:
+    driver: bridge

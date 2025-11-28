@@ -67,6 +67,30 @@ Start the frontend (in another terminal):
 pnpm dev
 ```
 
+### 🐳 Docker Deployment (Alternative)
+
+You can also run the application using Docker:
+
+1. **Setup environment**:
+   ```bash
+   cp .env.example .env
+   # Edit .env and add your Google Gemini API key
+   ```
+
+2. **Build and run with Docker**:
+   ```bash
+   docker-compose up --build
+   ```
+
+3. **Access the application**:
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:8000/docs
+
+The Docker setup includes:
+- **Frontend**: React app served by Node.js static server
+- **Backend**: FastAPI with Docling document processing
+- **Simple networking**: Services communicate via Docker network
+
 ## 🛡 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
